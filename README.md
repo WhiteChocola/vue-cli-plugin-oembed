@@ -1,5 +1,6 @@
 # Oembed
- Vue plugin for social media oEmbed. 
+ Vue plugin for social media oEmbed.
+ This plugin was developed for supporting latest facebook / instagram oembed api changes.
 
 # Supported Oembed API
 <ul>
