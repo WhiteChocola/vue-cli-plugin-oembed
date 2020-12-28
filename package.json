@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-oembed",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "repository": "https://github.com/WhiteChocola/vue-cli-plugin-oembed",
   "scripts": {

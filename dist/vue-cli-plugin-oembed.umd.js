@@ -947,13 +947,13 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=0ef0cd12
+// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=64139378
 
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.data }, null, 8, ["innerHTML"]))
+  return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.html }, null, 8, ["innerHTML"]))
 }
-// CONCATENATED MODULE: ./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=0ef0cd12
+// CONCATENATED MODULE: ./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=64139378
 
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("bc3a");
@@ -1024,7 +1024,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 		},
 		data() {
 			return {
-				data: '',
+				html: '',
 			}
 		},
 		methods: {
@@ -1046,7 +1046,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 			},
 			get_oembed: function(url){
 				this.get_facebook_oembed(url).then(html => {
-					this.data = html
+					this.html = html
 				})
 			},
 		},
@@ -1059,10 +1059,10 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 				if(newVal != null){
 					this.get_oembed(newVal)
 				}else{
-					this.data = ''
+					this.html = ''
 				}
 			},
-			data: function(newVal, oldVal){
+			html: function(newVal, oldVal){
 				setTimeout(function(){
 					window.FB.XFBML.parse()
 				}, 100)
@@ -1079,13 +1079,13 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 FacebookOembedvue_type_script_lang_js.render = render
 
 /* harmony default export */ var FacebookOembed = (FacebookOembedvue_type_script_lang_js);
-// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=08bef778
+// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=dd62bffe
 
 
-function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.data }, null, 8, ["innerHTML"]))
+function InstagramOembedvue_type_template_id_dd62bffe_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.html }, null, 8, ["innerHTML"]))
 }
-// CONCATENATED MODULE: ./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=08bef778
+// CONCATENATED MODULE: ./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=dd62bffe
 
 // CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=script&lang=js
 
@@ -1101,7 +1101,7 @@ function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $prop
 		},
 		data() {
 			return {
-				data: '',
+				html: '',
 			}
 		},
 		methods: {
@@ -1123,7 +1123,7 @@ function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $prop
 			},
 			get_oembed: function(url){
 				this.get_instagram_oembed(url).then(html => {
-					this.data = html
+					this.html = html
 				})
 			},
 		},
@@ -1136,10 +1136,10 @@ function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $prop
 				if(newVal != null){
 					this.get_oembed(newVal)
 				}else{
-					this.data = ''
+					this.html = ''
 				}
 			},
-			data: function(newVal, oldVal){
+			html: function(newVal, oldVal){
 				setTimeout(function(){
 					window.instgrm.Embeds.process()
 				}, 100)
@@ -1153,7 +1153,7 @@ function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $prop
 
 
 
-InstagramOembedvue_type_script_lang_js.render = InstagramOembedvue_type_template_id_08bef778_render
+InstagramOembedvue_type_script_lang_js.render = InstagramOembedvue_type_template_id_dd62bffe_render
 
 /* harmony default export */ var InstagramOembed = (InstagramOembedvue_type_script_lang_js);
 // CONCATENATED MODULE: ./src/plugins/oembed/index.js
