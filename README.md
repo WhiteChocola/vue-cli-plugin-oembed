@@ -3,8 +3,8 @@
 
 # Supported Oembed API
 <ul>
- <li>Facebook </li>
- <li>Instagram </li>
+ <li><a href="https://developers.facebook.com/docs/plugins/oembed/" target="_blank">Facebook</a></li>
+ <li><a href="https://developers.facebook.com/docs/instagram/oembed/" target="_blank">Instagram</a></li>
 </ul>
 
 # Installation Guide
@@ -23,14 +23,14 @@ Html
 ```html
 <instagram-oembed 
 	url="https://www.instagram.com/p/CJD5bFMBt8S/" 
-	app_id="Your Graph API App ID" 
-	app_secret="Your Graph API App Secret"
+	app_id="Your App ID" 
+	app_secret="Your App Secret"
 ></instagram-oembed>
 ```
 ```html
 <facebook-oembed 
 	url="https://www.facebook.com/POTUS/posts/1511527275583374"
-	app_id="Your Graph API App ID" 
-	app_secret="Your Graph API App Secret"
+	app_id="Your App ID" 
+	app_secret="Your App Secret"
 ></facebook-oembed>
 ```
