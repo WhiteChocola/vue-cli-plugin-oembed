@@ -1,0 +1,21 @@
+{
+  "name": "vue-cli-plugin-oembed",
+  "version": "0.0.0",
+  "private": false,
+  "scripts": {
+    "build": "vue-cli-service build",
+    "build-library": "vue-cli-service build --target lib --name vue-cli-plugin-oembed ./src/plugins/oembed/index.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "requirejs": "^2.3.6",
+    "vue": "^3.0.4",
+    "vue-component-compiler": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "vite": "^1.0.0-rc.13"
+  },
+  "main" : ".src/plugins/oembed/index.js",
+}
