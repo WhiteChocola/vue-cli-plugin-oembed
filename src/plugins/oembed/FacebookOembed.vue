@@ -1,5 +1,5 @@
 <template>
-	<div v-html="data"></div>
+	<div v-html="html"></div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@
 		},
 		data() {
 			return {
-				data: '',
+				html: '',
 			}
 		},
 		methods: {
@@ -37,7 +37,7 @@
 			},
 			get_oembed: function(url){
 				this.get_facebook_oembed(url).then(html => {
-					this.data = html
+					this.html = html
 				})
 			},
 		},
@@ -50,10 +50,10 @@
 				if(newVal != null){
 					this.get_oembed(newVal)
 				}else{
-					this.data = ''
+					this.html = ''
 				}
 			},
-			data: function(newVal, oldVal){
+			html: function(newVal, oldVal){
 				setTimeout(function(){
 					window.FB.XFBML.parse()
 				}, 100)
