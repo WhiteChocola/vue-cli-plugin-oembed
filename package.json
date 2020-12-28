@@ -1,13 +1,12 @@
 {
   "name": "vue-cli-plugin-oembed",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "repository": "https://github.com/WhiteChocola/vue-cli-plugin-oembed",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build-library": "vue-cli-service build --target lib --name vue-cli-plugin-oembed ./src/plugins/oembed/index.js",
-    "lint": "vue-cli-service lint"
+    "build-library": "vue-cli-service build --target lib --name vue-cli-plugin-oembed ./src/plugins/oembed/index.js"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -18,5 +17,6 @@
     "vite": "^1.0.0-rc.13",
     "@vue/compiler-sfc": "^3.0.4"
   },
-  "main": ".dist/vue-cli-plugin-oembed.common.js"
+  "main": ".dist/vue-cli-plugin-oembed.imd.min.js",
+  "module": "dist/vue-cli-plugin-oembed.common.js"
 }
