@@ -4,7 +4,7 @@
 
 <script>
 	import axios from 'axios'
-	import {Retrieve_Facebook_Access_Token, Inject_Instagram_Script} from './helper.js'
+	import Helper from './helper.js'
 
 	export default {
 		name: 'instagram-oembed',
@@ -20,7 +20,7 @@
 		},
 		methods: {
 			get_instagram_oembed: function(url){
-				return Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
+				return Helper.Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
 					return axios.get('https://graph.facebook.com/v9.0/instagram_oembed', {
 						params:{
 							url: url,
@@ -42,7 +42,7 @@
 			},
 		},
 		mounted(){
-			Inject_Instagram_Script()
+			Helper.Inject_Instagram_Script()
 			this.get_oembed(this.url)
 		},
 		watch: {

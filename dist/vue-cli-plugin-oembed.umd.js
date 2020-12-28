@@ -947,13 +947,13 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=891c5072
+// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=0ef0cd12
 
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.data }, null, 8, ["innerHTML"]))
 }
-// CONCATENATED MODULE: ./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=891c5072
+// CONCATENATED MODULE: ./src/plugins/oembed/FacebookOembed.vue?vue&type=template&id=0ef0cd12
 
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__("bc3a");
@@ -962,52 +962,53 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 // CONCATENATED MODULE: ./src/plugins/oembed/helper.js
 
 
-let Retrieve_Facebook_Access_Token = function(app_id, app_secret) {
-	return axios_default.a.get('https://graph.facebook.com/oauth/access_token', {
-		params:{
-			client_id: app_id,
-			client_secret: app_secret,
-			grant_type: 'client_credentials',
-		}
-	})
-	.then(response => {
-		return response.data.access_token
-	})
-	.catch(errors => {
-		return null
-	});
-};
+/* harmony default export */ var helper = ({
+	Retrieve_Facebook_Access_Token: function(app_id, app_secret) {
+		return axios_default.a.get('https://graph.facebook.com/oauth/access_token', {
+			params:{
+				client_id: app_id,
+				client_secret: app_secret,
+				grant_type: 'client_credentials',
+			}
+		})
+		.then(response => {
+			return response.data.access_token
+		})
+		.catch(errors => {
+			return null
+		});
+	},
 
-let Inject_Instagram_Script = function() {
-	let existingScript = document.getElementById('vue-instagram-embed-script');
-	if(!existingScript){
-		let protocolToUse = 'https:'
-		let s = document.createElement('script')
-		s.async = s.defer = true
-		s.src = `${protocolToUse}//www.instagram.com/embed.js`
-		s.id = 'vue-instagram-embed-script'
-		const body = document.body
-		if (body) {
-			body.appendChild(s)
+	Inject_Instagram_Script: function() {
+		let existingScript = document.getElementById('vue-instagram-embed-script');
+		if(!existingScript){
+			let protocolToUse = 'https:'
+			let s = document.createElement('script')
+			s.async = s.defer = true
+			s.src = `${protocolToUse}//www.instagram.com/embed.js`
+			s.id = 'vue-instagram-embed-script'
+			const body = document.body
+			if (body) {
+				body.appendChild(s)
+			}
 		}
-	}
-};
+	},
 
-let Inject_Facebook_Script = function() {
-	let existingScript = document.getElementById('vue-facebook-embed-script');
-	if(!existingScript){
-		let protocolToUse = 'https:'
-		let s = document.createElement('script')
-		s.async = s.defer = true;
-		s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v9.0`
-		s.id = 'vue-facebook-embed-script'
-		const body = document.body
-		if (body) {
-			body.appendChild(s)
+	Inject_Facebook_Script: function() {
+		let existingScript = document.getElementById('vue-facebook-embed-script');
+		if(!existingScript){
+			let protocolToUse = 'https:'
+			let s = document.createElement('script')
+			s.async = s.defer = true;
+			s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v9.0`
+			s.id = 'vue-facebook-embed-script'
+			const body = document.body
+			if (body) {
+				body.appendChild(s)
+			}
 		}
-	}
-};
-
+	},
+});
 
 // CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/FacebookOembed.vue?vue&type=script&lang=js
 
@@ -1028,7 +1029,7 @@ let Inject_Facebook_Script = function() {
 		},
 		methods: {
 			get_facebook_oembed: function(url){
-				return Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
+				return helper.Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
 					return axios_default.a.get('https://graph.facebook.com/v9.0/oembed_post', {
 						params:{
 							url: url,
@@ -1050,7 +1051,7 @@ let Inject_Facebook_Script = function() {
 			},
 		},
 		mounted(){
-			Inject_Facebook_Script()
+			helper.Inject_Facebook_Script()
 			this.get_oembed(this.url)
 		},
 		watch: {
@@ -1078,13 +1079,13 @@ let Inject_Facebook_Script = function() {
 FacebookOembedvue_type_script_lang_js.render = render
 
 /* harmony default export */ var FacebookOembed = (FacebookOembedvue_type_script_lang_js);
-// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=cce7e3bc
+// CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--5!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=08bef778
 
 
-function InstagramOembedvue_type_template_id_cce7e3bc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function InstagramOembedvue_type_template_id_08bef778_render(_ctx, _cache, $props, $setup, $data, $options) {
   return (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", { innerHTML: $data.data }, null, 8, ["innerHTML"]))
 }
-// CONCATENATED MODULE: ./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=cce7e3bc
+// CONCATENATED MODULE: ./src/plugins/oembed/InstagramOembed.vue?vue&type=template&id=08bef778
 
 // CONCATENATED MODULE: C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--0-0!C:/Users/Yong Jing/AppData/Roaming/npm/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--0-1!./src/plugins/oembed/InstagramOembed.vue?vue&type=script&lang=js
 
@@ -1105,7 +1106,7 @@ function InstagramOembedvue_type_template_id_cce7e3bc_render(_ctx, _cache, $prop
 		},
 		methods: {
 			get_instagram_oembed: function(url){
-				return Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
+				return helper.Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
 					return axios_default.a.get('https://graph.facebook.com/v9.0/instagram_oembed', {
 						params:{
 							url: url,
@@ -1127,7 +1128,7 @@ function InstagramOembedvue_type_template_id_cce7e3bc_render(_ctx, _cache, $prop
 			},
 		},
 		mounted(){
-			Inject_Instagram_Script()
+			helper.Inject_Instagram_Script()
 			this.get_oembed(this.url)
 		},
 		watch: {
@@ -1152,7 +1153,7 @@ function InstagramOembedvue_type_template_id_cce7e3bc_render(_ctx, _cache, $prop
 
 
 
-InstagramOembedvue_type_script_lang_js.render = InstagramOembedvue_type_template_id_cce7e3bc_render
+InstagramOembedvue_type_script_lang_js.render = InstagramOembedvue_type_template_id_08bef778_render
 
 /* harmony default export */ var InstagramOembed = (InstagramOembedvue_type_script_lang_js);
 // CONCATENATED MODULE: ./src/plugins/oembed/index.js
