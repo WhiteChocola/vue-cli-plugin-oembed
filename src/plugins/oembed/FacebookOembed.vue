@@ -1,5 +1,9 @@
 <template>
-	<div v-html="html"></div>
+	<div>
+		<div v-html="html" v-if="html">
+		</div>
+		<slot name="custom_error" v-else/>
+	</div>
 </template>
 
 <script>
@@ -15,7 +19,7 @@
 		},
 		data() {
 			return {
-				html: '',
+				html: null,
 			}
 		},
 		methods: {
@@ -50,7 +54,7 @@
 				if(newVal != null){
 					this.get_oembed(newVal)
 				}else{
-					this.html = ''
+					this.html = null
 				}
 			},
 			html: function(newVal, oldVal){
