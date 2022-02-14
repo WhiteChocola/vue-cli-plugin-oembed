@@ -35,3 +35,6 @@ Html
 	app_secret="Your App Secret"
 ></facebook-oembed>
 ```
+```html
+<tiktok-oembed url="https://www.tiktok.com/@scout2015/video/6718335390845095173"></tiktok-oembed>
+```
