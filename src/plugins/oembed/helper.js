@@ -49,16 +49,18 @@ export default {
 
 	Inject_Tiktok_Script: function() {
 		let existingScript = document.getElementById('vue-tiktok-embed-script');
-		if(!existingScript){
-			let protocolToUse = 'https:'
-			let s = document.createElement('script')
-			s.async = s.defer = true;
-			s.src = `${protocolToUse}//www.tiktok.com/embed.js`
-			s.id = 'vue-tiktok-embed-script'
-			const body = document.body
-			if (body) {
-				body.appendChild(s)
-			}
+
+		if(existingScript)
+			existingScript.remove();
+
+		let protocolToUse = 'https:'
+		let s = document.createElement('script')
+		s.async = s.defer = true;
+		s.src = `${protocolToUse}//lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/falcon/embed/embed_v1.0.10.js`
+		s.id = 'vue-tiktok-embed-script'
+		const body = document.body
+		if (body) {
+			body.appendChild(s)
 		}
 	},
 }

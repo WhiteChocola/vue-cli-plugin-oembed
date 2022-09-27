@@ -41,7 +41,7 @@
 			},
 		},
 		mounted(){
-			Helper.Inject_Tiktok_Script()
+			
 			this.get_oembed(this.url)
 		},
 		watch: {
@@ -54,7 +54,7 @@
 			},
 			html: function(newVal, oldVal){
 				setTimeout(function(){
-					
+					Helper.Inject_Tiktok_Script()
 				}, 100)
 			}
 		},
