@@ -3,6 +3,7 @@ import axios from 'axios'
 export default {
 	Retrieve_Facebook_Access_Token: function(app_id, app_secret) {
 		return axios.get('https://graph.facebook.com/oauth/access_token', {
+			headers:{},
 			params:{
 				client_id: app_id,
 				client_secret: app_secret,
@@ -56,7 +57,7 @@ export default {
 		let protocolToUse = 'https:'
 		let s = document.createElement('script')
 		s.async = s.defer = true;
-		s.src = `${protocolToUse}//lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/falcon/embed/embed_v1.0.10.js`
+		s.src = `${protocolToUse}//lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/falcon/embed/embed_v1.0.11.js`
 		s.id = 'vue-tiktok-embed-script'
 		const body = document.body
 		if (body) {

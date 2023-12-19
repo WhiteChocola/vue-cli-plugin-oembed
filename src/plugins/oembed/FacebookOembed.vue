@@ -26,6 +26,7 @@
 			get_facebook_oembed: function(url){
 				return Helper.Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
 					return axios.get('https://graph.facebook.com/v9.0/oembed_post', {
+						headers:{},
 						params:{
 							url: url,
 							access_token: token,

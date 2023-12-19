@@ -1,20 +1,26 @@
 {
   "name": "vue-cli-plugin-oembed",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "private": false,
   "repository": "https://github.com/WhiteChocola/vue-cli-plugin-oembed",
+  "keywords": [
+    "embed", "oembed", 
+    "facebook embed", "facebook oembed", 
+    "instagram embed", "instagram oembed", 
+    "tiktok embed", "tiktok oembed"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build-library": "vue-cli-service build --target lib --name vue-cli-plugin-oembed ./src/plugins/oembed/index.js"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^1.6.2",
     "vue": "^3.0.4"
   },
   "devDependencies": {
-    "vite": "^1.0.0-rc.13",
-    "@vue/compiler-sfc": "^3.0.4"
+    "@vue/compiler-sfc": "^3.0.4",
+    "vite": "^1.0.0-rc.13"
   },
   "main": "src/plugins/oembed/index.js",
   "module": "src/plugins/oembed/index.js"

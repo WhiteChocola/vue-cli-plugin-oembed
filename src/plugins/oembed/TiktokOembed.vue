@@ -23,6 +23,7 @@
 		methods: {
 			get_tiktok_oembed: function(url){
 				return axios.get('https://www.tiktok.com/oembed', {
+					headers:{},
 					params:{
 						url: url,
 					}

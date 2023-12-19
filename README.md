@@ -6,6 +6,7 @@
 <ul>
  <li><a href="https://developers.facebook.com/docs/plugins/oembed/" target="_blank">Facebook</a></li>
  <li><a href="https://developers.facebook.com/docs/instagram/oembed/" target="_blank">Instagram</a></li>
+ <li><a href="https://developers.tiktok.com/doc/embed-videos/" target="_blank">Tiktok</a></li>
 </ul>
 
 # Installation Guide
@@ -16,9 +17,12 @@ npm i vue-cli-plugin-oembed
 # Usage
 main.js
 ```javascript
-import Vue from './App.vue';
+import { createApp } from 'vue';
+import App from './App.vue';
 import Oembed from 'vue-cli-plugin-oembed';
-Vue.use(Oembed);
+
+const app = createApp(App);
+app.use(Oembed);
 ```
 Html
 ```html
