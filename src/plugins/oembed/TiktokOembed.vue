@@ -38,6 +38,7 @@
 		},
 		watch: {
 			url: function(newVal, oldVal){
+				this.html = null
 				this.error = null
 				if(newVal != null){
 					this.get_oembed(newVal)
