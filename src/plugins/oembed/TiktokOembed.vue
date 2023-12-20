@@ -1,56 +1,46 @@
 <template>
-	<div>
+	<div :class="class">
 		<div v-html="html" v-if="html">
 		</div>
-		<slot name="custom_error" v-else/>
+		<slot name="custom_error" v-else-if="error">
+			<div style="color:red">{{ error.response.data }}</div>
+		</slot>
 	</div>
 </template>
 
 <script>
-	import axios from 'axios'
 	import Helper from './helper.js'
 
 	export default {
 		name: 'tiktok-oembed',
 		props: {
 			url: String,
+			class: String,
 		},
 		data() {
 			return {
 				html: null,
+				error: null,
 			}
 		},
 		methods: {
-			get_tiktok_oembed: function(url){
-				return axios.get('https://www.tiktok.com/oembed', {
-					headers:{},
-					params:{
-						url: url,
-					}
-				})
-				.then(response => {
-					return response.data.html
-				})
-				.catch(errors => {
-					return null
-				})
-			},
 			get_oembed: function(url){
-				this.get_tiktok_oembed(url).then(html => {
-					this.html = html
+				Helper.Tiktok_Oembed(url).then(data => {
+					this.html = data.html
+				}).catch(error => {
+					this.error = error
+					this.$emit('error', error)
 				})
 			},
 		},
 		mounted(){
-			
 			this.get_oembed(this.url)
 		},
 		watch: {
 			url: function(newVal, oldVal){
+				this.error = null
 				if(newVal != null){
 					this.get_oembed(newVal)
-				}else{
-					this.html = null
 				}
 			},
 			html: function(newVal, oldVal){

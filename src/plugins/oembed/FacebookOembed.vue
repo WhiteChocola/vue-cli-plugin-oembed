@@ -1,13 +1,14 @@
 <template>
-	<div>
+	<div :class="class">
 		<div v-html="html" v-if="html">
 		</div>
-		<slot name="custom_error" v-else/>
+		<slot name="custom_error" v-else-if="error">
+			<div style="color:red">{{ error.response.data }}</div>
+		</slot>
 	</div>
 </template>
 
 <script>
-	import axios from 'axios'
 	import Helper from './helper.js'
 
 	export default {
@@ -16,33 +17,21 @@
 			url: String,
 			app_id: String,
 			app_secret: String,
+			class: String,
 		},
 		data() {
 			return {
 				html: null,
+				error: null,
 			}
 		},
 		methods: {
-			get_facebook_oembed: function(url){
-				return Helper.Retrieve_Facebook_Access_Token(this.app_id, this.app_secret).then(token => {
-					return axios.get('https://graph.facebook.com/v9.0/oembed_post', {
-						headers:{},
-						params:{
-							url: url,
-							access_token: token,
-						}
-					})
-					.then(response => {
-						return response.data.html
-					})
-					.catch(errors => {
-						return null
-					})
-				})
-			},
 			get_oembed: function(url){
-				this.get_facebook_oembed(url).then(html => {
-					this.html = html
+				Helper.Facebook_Oembed(this.app_id, this.app_secret, url).then(data => {
+					this.html = data.html
+				}).catch(error => {
+					this.error = error
+					this.$emit('error', error)
 				})
 			},
 		},
@@ -52,6 +41,7 @@
 		},
 		watch: {
 			url: function(newVal, oldVal){
+				this.error = null
 				if(newVal != null){
 					this.get_oembed(newVal)
 				}else{

@@ -1,6 +1,6 @@
 # Oembed
  Vue plugin for social media oEmbed.
- This plugin was developed for supporting latest facebook / instagram oembed api changes.
+ This plugin was developed for supporting latest facebook / instagram / tiktok oembed api changes.
 
 # Supported Oembed API
 <ul>
@@ -41,4 +41,17 @@ Html
 ```
 ```html
 <tiktok-oembed url="https://www.tiktok.com/@scout2015/video/6718335390845095173"></tiktok-oembed>
+```
+
+Custom Error Display
+```html
+<instagram-oembed 
+	url="https://www.instagram.com/p/CJD5bFMBt8S/" 
+	app_id="Your App ID" 
+	app_secret="Your App Secret"
+>
+	<template v-slot:custom_error>
+	    <div>Custom Error HTML Tags</div>
+	</template>
+</instagram-oembed>
 ```

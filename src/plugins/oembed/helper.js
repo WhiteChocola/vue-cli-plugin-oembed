@@ -1,9 +1,16 @@
 import axios from 'axios'
 
+const fb_graph = axios.create({
+	baseURL: 'https://graph.facebook.com/',
+});
+
+const tiktok_api = axios.create({
+	baseURL: 'https://www.tiktok.com/',
+});
+
 export default {
 	Retrieve_Facebook_Access_Token: function(app_id, app_secret) {
-		return axios.get('https://graph.facebook.com/oauth/access_token', {
-			headers:{},
+		return fb_graph.get('oauth/access_token', {
 			params:{
 				client_id: app_id,
 				client_secret: app_secret,
@@ -13,9 +20,57 @@ export default {
 		.then(response => {
 			return response.data.access_token
 		})
-		.catch(errors => {
-			return null
-		});
+		.catch(error => {
+			return Promise.reject(error)
+		})
+	},
+
+	Facebook_Oembed: function(app_id, app_secret, url){
+		return this.Retrieve_Facebook_Access_Token(app_id, app_secret).then(token => {
+			return fb_graph.get('v18.0/oembed_post', {
+				params:{
+					url: url,
+					access_token: token,
+				}
+			})
+			.then(response => {
+				return response.data
+			})
+			.catch(error => {
+				return Promise.reject(error)
+			})
+		})
+	},
+
+	Instagram_Oembed: function(app_id, app_secret, url){
+		return this.Retrieve_Facebook_Access_Token(app_id, app_secret).then(token => {
+			return fb_graph.get('v18.0/instagram_oembed', {
+				params:{
+					url: url,
+					access_token: token,
+				}
+			})
+			.then(response => {
+				return response.data
+			})
+			.catch(error => {
+				return Promise.reject(error)
+			})
+		})
+	},
+
+	Tiktok_Oembed: function(url){
+		return tiktok_api.get('oembed', {
+			params:{
+				url: url,
+			}
+		})
+		.then(response => {
+			return response.data
+		})
+		.catch(error => {
+			return Promise.reject(error)
+		})
 	},
 
 	Inject_Instagram_Script: function() {
