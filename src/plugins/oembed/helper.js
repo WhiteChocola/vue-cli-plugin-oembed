@@ -94,7 +94,7 @@ export default {
 			let protocolToUse = 'https:'
 			let s = document.createElement('script')
 			s.async = s.defer = true;
-			s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v9.0`
+			s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v18.0`
 			s.id = 'vue-facebook-embed-script'
 			const body = document.body
 			if (body) {
@@ -117,6 +117,21 @@ export default {
 		const body = document.body
 		if (body) {
 			body.appendChild(s)
+		}
+	},
+
+	Inject_Youtube_Script: function() {
+		let existingScript = document.getElementById('vue-youtube-embed-script');
+		if(!existingScript){
+			let protocolToUse = 'https:'
+			let s = document.createElement('script')
+			s.async = s.defer = true;
+			s.src = `${protocolToUse}//www.youtube.com/iframe_api`
+			s.id = 'vue-youtube-embed-script'
+			const body = document.body
+			if (body) {
+				body.appendChild(s)
+			}
 		}
 	},
 }

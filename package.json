@@ -4,10 +4,11 @@
   "private": false,
   "repository": "https://github.com/WhiteChocola/vue-cli-plugin-oembed",
   "keywords": [
-    "embed", "oembed", 
-    "facebook embed", "facebook oembed", 
-    "instagram embed", "instagram oembed", 
-    "tiktok embed", "tiktok oembed"
+    "embed", "oembed", "iframe",
+    "facebook embed", "facebook oembed", "facebook iframe",
+    "instagram embed", "instagram oembed", "instagram iframe",
+    "tiktok embed", "tiktok oembed", "tiktok iframe",
+    "youtube embed", "youtube oembed", "youtube iframe"
   ],
   "scripts": {
     "dev": "vite",
