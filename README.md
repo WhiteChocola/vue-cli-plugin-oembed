@@ -8,6 +8,11 @@
 - [Tiktok](https://developers.tiktok.com/doc/embed-videos/)
 - [Youtube](https://developers.google.com/youtube/iframe_api_reference)
 
+# Special Note
+App in development mode unable to consume Facebook Oembed Graph API? 
+
+Take a look into [community reference](https://developers.facebook.com/community/threads/388554676046719/) for easier to get permission approval.
+
 # Installation Guide
 ```bash
 npm i vue-cli-plugin-oembed

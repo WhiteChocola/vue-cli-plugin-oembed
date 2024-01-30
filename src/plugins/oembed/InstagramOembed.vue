@@ -1,5 +1,5 @@
 <template>
-	<div :class="class">
+	<div :class="classes">
 		<div v-html="html" v-if="html">
 		</div>
 		<slot name="custom_error" v-else-if="error">
@@ -17,7 +17,7 @@
 			url: String,
 			app_id: String,
 			app_secret: String,
-			class: String,
+			classes: String,
 		},
 		data() {
 			return {

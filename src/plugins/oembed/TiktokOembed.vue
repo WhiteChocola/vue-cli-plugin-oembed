@@ -1,5 +1,5 @@
 <template>
-	<div :class="class">
+	<div :class="classes">
 		<div v-html="html" v-if="html">
 		</div>
 		<slot name="custom_error" v-else-if="error">
@@ -15,7 +15,7 @@
 		name: 'tiktok-oembed',
 		props: {
 			url: String,
-			class: String,
+			classes: String,
 		},
 		data() {
 			return {
