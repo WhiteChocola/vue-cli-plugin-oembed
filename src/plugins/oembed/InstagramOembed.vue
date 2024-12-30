@@ -9,7 +9,8 @@
 </template>
 
 <script>
-	import Helper from './helper.js'
+	import { ref, watch, onMounted } from 'vue';
+	import Helper from './helper.js';
 
 	export default {
 		name: 'instagram-oembed',
@@ -19,41 +20,45 @@
 			app_secret: String,
 			classes: String,
 		},
-		data() {
-			return {
-				html: null,
-				error: null,
-			}
-		},
-		methods: {
-			get_oembed: function(url){
-				return Helper.Instagram_Oembed(this.app_id, this.app_secret, url).then(data => {
-					this.html = data.html
-				}).catch(error => {
-					this.error = error
-					this.$emit('error', error)
-				})
-			},
-		},
-		mounted(){
-			Helper.Inject_Instagram_Script()
-			this.get_oembed(this.url)
-		},
-		watch: {
-			url: function(newVal, oldVal){
-				this.html = null
-				this.error = null
-				if(newVal != null){
-					this.get_oembed(newVal)
-				}else{
-					this.html = null
+		setup(props, { emit }) {
+			const html = ref(null);
+			const error = ref(null);
+
+			const get_oembed = (url) => {
+				return Helper.Instagram_Oembed(props.app_id, props.app_secret, url).then(data => {
+					html.value = data.html;
+				}).catch(err => {
+					error.value = err;
+					emit('error', err);
+				});
+			};
+
+			onMounted(() => {
+				Helper.Inject_Instagram_Script();
+				get_oembed(props.url);
+			});
+
+			watch(() => props.url, (newVal) => {
+				html.value = null;
+				error.value = null;
+				if (newVal != null) {
+					get_oembed(newVal);
+				} else {
+					html.value = null;
 				}
-			},
-			html: function(newVal, oldVal){
-				setTimeout(function(){
-					window.instgrm.Embeds.process()
-				}, 100)
-			}
-		},
-	}
+			});
+
+			watch(html, () => {
+				setTimeout(() => {
+					window.instgrm.Embeds.process();
+				}, 100);
+			});
+
+			return {
+				html,
+				error,
+				get_oembed
+			};
+		}
+	};
 </script>
