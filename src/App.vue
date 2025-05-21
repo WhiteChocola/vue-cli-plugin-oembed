@@ -1,6 +1,7 @@
 <template>
   	<!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   	<!-- <HelloWorld msg="Vue3 Oembed" /> -->
+
   	<div class="content-center m p">
 		<h1>Youtube iFrame Video</h1>
 		<youtube-oembed url="https://www.youtube.com/watch?v=M7lc1UVf-VE"></youtube-oembed>
@@ -12,18 +13,23 @@
 	</div>
 
 	<div class="content-center m p">
+		<h1>Tiktok Embed</h1>
+  		<tiktok-oembed url="https://www.tiktok.com/@scout2015/video/6718335390845095173"></tiktok-oembed>
+  	</div>
+
+	<div class="content-center m p">
 		<h1>Instagram Embed</h1>
   		<instagram-oembed url="https://www.instagram.com/p/CliA3T1LfyY/?igshid=YmMyMTA2M2Y%3D" app_id="299211157663041" app_secret="e1a7fbbbf2ea1945b7eba983a9e03415"></instagram-oembed>
 	</div>
 
 	<div class="content-center m p">
+		<h1>Threads Embed</h1>
+		<threads-oembed url="https://www.threads.com/@aisyazwaa/post/DJ4meRAyPKx?xmt=AQF0gXsxZgi6esF_PzsYk5WjIx0qpg2NyhOViHornxwSYA"></threads-oembed>
+	</div>
+
+	<div class="content-center m p">
 		<h1>Facebook Embed</h1>
   		<facebook-oembed url="https://www.facebook.com/POTUS/posts/1511527275583374" app_id="299211157663041" app_secret="e1a7fbbbf2ea1945b7eba983a9e03415"></facebook-oembed>
-  	</div>
-
-  	<div class="content-center m p">
-		<h1>Tiktok Embed</h1>
-  		<tiktok-oembed url="https://www.tiktok.com/@scout2015/video/6718335390845095173"></tiktok-oembed>
   	</div>
 </template>
 
@@ -35,6 +41,19 @@
   		components: {
   			HelloWorld,
   		},
+  		data() {
+  			return {
+  				message: 'Welcome to Your Vue.js App',
+  			};
+  		},
+  		methods: {
+  			sayHello() {
+  				alert('Hello');
+  			},
+  		},
+  		mounted() {
+  			// console.log('App mounted');
+		},
   	};
 </script>
 

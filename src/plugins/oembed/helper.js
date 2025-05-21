@@ -8,6 +8,10 @@ const tiktok_api = axios.create({
 	baseURL: 'https://www.tiktok.com/',
 });
 
+const threads_graph = axios.create({
+	baseURL: 'https://graph.threads.net/',
+});
+
 export default {
 	Retrieve_Facebook_Access_Token: function(app_id, app_secret) {
 		return fb_graph.get('oauth/access_token', {
@@ -25,9 +29,25 @@ export default {
 		})
 	},
 
+	Retrieve_Threads_Access_Token: function(app_id, app_secret) {
+		return threads_graph.get('oauth/access_token', {
+			params:{
+				client_id: app_id,
+				client_secret: app_secret,
+				grant_type: 'client_credentials',
+			}
+		})
+		.then(response => {
+			return response.data.access_token
+		})
+		.catch(error => {
+			return Promise.reject(error)
+		})
+	},
+
 	Facebook_Oembed: function(app_id, app_secret, url){
 		return this.Retrieve_Facebook_Access_Token(app_id, app_secret).then(token => {
-			return fb_graph.get('v18.0/oembed_post', {
+			return fb_graph.get('v22.0/oembed_post', {
 				params:{
 					url: url,
 					access_token: token,
@@ -44,7 +64,24 @@ export default {
 
 	Instagram_Oembed: function(app_id, app_secret, url){
 		return this.Retrieve_Facebook_Access_Token(app_id, app_secret).then(token => {
-			return fb_graph.get('v18.0/instagram_oembed', {
+			return fb_graph.get('v22.0/instagram_oembed', {
+				params:{
+					url: url,
+					access_token: token,
+				}
+			})
+			.then(response => {
+				return response.data
+			})
+			.catch(error => {
+				return Promise.reject(error)
+			})
+		})
+	},
+
+	Threads_Oembed: function(app_id, app_secret, url){
+		return this.Retrieve_Threads_Access_Token(app_id, app_secret).then(token => {
+			return fb_graph.get('v1.0/oembed', {
 				params:{
 					url: url,
 					access_token: token,
@@ -94,7 +131,7 @@ export default {
 			let protocolToUse = 'https:'
 			let s = document.createElement('script')
 			s.async = s.defer = true;
-			s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v18.0`
+			s.src = `${protocolToUse}//connect.facebook.net/ms_MY/sdk.js#xfbml=1&version=v22.0`
 			s.id = 'vue-facebook-embed-script'
 			const body = document.body
 			if (body) {
@@ -128,6 +165,21 @@ export default {
 			s.async = s.defer = true;
 			s.src = `${protocolToUse}//www.youtube.com/iframe_api`
 			s.id = 'vue-youtube-embed-script'
+			const body = document.body
+			if (body) {
+				body.appendChild(s)
+			}
+		}
+	},
+
+	Inject_Threads_Script: function() {
+		let existingScript = document.getElementById('vue-threads-embed-script');
+		if(!existingScript){
+			let protocolToUse = 'https:'
+			let s = document.createElement('script')
+			s.async = s.defer = true;
+			s.src = `${protocolToUse}//www.threads.net/embed.js`
+			s.id = 'vue-threads-embed-script'
 			const body = document.body
 			if (body) {
 				body.appendChild(s)
